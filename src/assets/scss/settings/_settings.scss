@@ -55,10 +55,10 @@ $muted-color: transparentize($text-color, 0.4);
 $ratio: 1.61803398875;
 
 $spacing-unit-default: 24px;
-$spacing-unit-tiny: floor($spacing-unit-default / ($ratio * 2));
-$spacing-unit-small: floor($spacing-unit-default / $ratio);
-$spacing-unit-large: floor($spacing-unit-default * $ratio);
-$spacing-unit-huge: floor($spacing-unit-default * ($ratio * 2));
+$spacing-unit-tiny: floor(calc($spacing-unit-default / ($ratio * 2)));
+$spacing-unit-small: floor(calc($spacing-unit-default / $ratio));
+$spacing-unit-large: floor(calc($spacing-unit-default * $ratio));
+$spacing-unit-huge: floor(calc($spacing-unit-default * ($ratio * 2)));
 
 $spacings: (
   'tight' 0,
@@ -74,12 +74,12 @@ $spacings: (
 
 // Use EM media-queries for better browser consistency
 // See http://zellwk.com/blog/media-query-units
-$screen-xs-max: 640px / 16px * 1em;
-$screen-sm-min: 641px / 16px * 1em;
-$screen-sm-max: 768px / 16px * 1em;
-$screen-md-min: 769px / 16px * 1em;
-$screen-md-max: 1024px / 16px * 1em;
-$screen-lg-min: 1025px / 16px * 1em;
+$screen-xs-max: calc(640px / 16px * 1em);
+$screen-sm-min: calc(641px / 16px * 1em);
+$screen-sm-max: calc(768px / 16px * 1em);
+$screen-md-min: calc(769px / 16px * 1em);
+$screen-md-max: calc(1024px / 16px * 1em);
+$screen-lg-min: calc(1025px / 16px * 1em);
 
 $breakpoints-default: (
   'sm' '(min-width: #{$screen-sm-min})',
@@ -108,7 +108,7 @@ $border-radius-large: 6px;
  * Buttons
  */
 
-$btn-padding: $spacing-unit-small/$ratio $spacing-unit-default;
+$btn-padding: calc($spacing-unit-small / $ratio) $spacing-unit-default;
 $btn-color: inherit;
 $btn-font-size: inherit;
 $btn-font-family: inherit;
@@ -116,12 +116,12 @@ $btn-border: 2px solid transparent;
 $btn-bkg: transparent;
 $btn-border-radius: 100px;
 
-$btn-small-padding: $spacing-unit-tiny/$ratio $spacing-unit-small;
+$btn-small-padding: calc($spacing-unit-tiny/$ratio) $spacing-unit-small;
 $btn-small-font-size: $font-size-small;
 $btn-small-border: $btn-border;
 $btn-small-border-radius: $btn-border-radius;
 
-$btn-large-padding: $spacing-unit-default/$ratio $spacing-unit-large;
+$btn-large-padding: calc($spacing-unit-default / $ratio) $spacing-unit-large;
 $btn-large-font-size: $font-size-large;
 $btn-large-border: $btn-border;
 $btn-large-border-radius: $btn-border-radius;
@@ -155,12 +155,12 @@ $field-border-radius: 28px;
 $field-disabled-bkg-color: $alt-color-lighter;
 $field-disabled-color: $alt-color;
 
-$field-small-padding: $spacing-unit-tiny/$ratio $spacing-unit-tiny;
+$field-small-padding: calc($spacing-unit-tiny/$ratio) $spacing-unit-tiny;
 $field-small-font-size: $font-size-small;
 $field-small-border: $field-border;
 $field-small-border-radius: $border-radius-small;
 
-$field-large-padding: $spacing-unit-default/$ratio $spacing-unit-default;
+$field-large-padding: calc($spacing-unit-default/$ratio) $spacing-unit-default;
 $field-large-font-size: $font-size-large;
 $field-large-border: $field-border;
 $field-large-border-radius: $border-radius-large;
