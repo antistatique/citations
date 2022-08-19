@@ -26,7 +26,7 @@
         >
           <heart-alt-icon v-if="liked" class="feeling__icon icon" />
           <heart-icon v-else class="feeling__icon icon" />
-          {{ quote.likes || 0 }}
+          {{ this.getLikeCount }}
         </button>
       </li>
       <li>
@@ -38,7 +38,7 @@
         >
           <poop-alt-icon v-if="disliked" class="feeling__icon icon" />
           <poop-icon v-else class="feeling__icon icon" />
-          {{ quote.dislikes || 0 }}
+          {{ this.getDislikeCount }}
         </button>
       </li>
     </ul>
@@ -82,6 +82,28 @@ export default {
       return (
         this.quote.dislikedBy && this.quote.dislikedBy.includes(this.user.uid)
       );
+    },
+
+    getLikeCount() {
+      if (this.quote.likedBy) {
+        return this.quote.likedBy.length;
+      }
+      if (this.quote.likes) {
+        return this.quote.likes;
+      }
+
+      return 0;
+    },
+
+    getDislikeCount() {
+      if (this.quote.dislikedBy) {
+        return this.quote.dislikedBy.length;
+      }
+      if (this.quote.dislikes) {
+        return this.quote.dislikes;
+      }
+
+      return 0;
     },
 
     textHighlighted() {

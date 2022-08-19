@@ -7,6 +7,7 @@
       height="56"
       alt=""
       loading="lazy"
+      referrerpolicy="no-referrer"
     />
   </div>
 </template>

@@ -11,6 +11,12 @@ const database = admin.firestore();
  */
 exports.updateFeelingsAndScore = functions.https.onRequest(
   (request, response) => {
+    if (request.app === undefined) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called from an App Check verified app.'
+      );
+    }
     let quotesUpdatedCounter = 0;
 
     return database
@@ -118,6 +124,12 @@ exports.updateQuoteStats = functions.firestore
  * Recaclculate quotes counter cache from scratch
  */
 exports.recountQuotes = functions.https.onRequest((request, response) => {
+  if (request.app === undefined) {
+    throw new functions.https.HttpsError(
+      'failed-precondition',
+      'The function must be called from an App Check verified app.'
+    );
+  }
   let count;
 
   return database
