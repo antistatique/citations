@@ -146,3 +146,18 @@ exports.recountQuotes = functions.https.onRequest((request, response) => {
       response.status(200).send(`Updated quotes counter: ${count} quotes.`);
     });
 });
+
+exports.blockNoASUser = functions.auth.user().beforeSignIn(user => {
+  if (user.emailVerified === false) {
+    throw new functions.auth.HttpsError(
+      'unauthenticated',
+      'Email not verified'
+    );
+  }
+  if (!user.email.endsWith('@antistatique.net')) {
+    throw new functions.auth.HttpsError(
+      'out-of-range',
+      'Not an Antistatique user'
+    );
+  }
+});
