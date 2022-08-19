@@ -35,7 +35,7 @@ export default {
       const provider = new fireauth.GoogleAuthProvider();
 
       provider.setCustomParameters({
-        hd: 'liip.ch',
+        hd: 'antistatique.net',
       });
 
       auth.signInWithPopup(provider).catch(error => {
